@@ -4,20 +4,25 @@ Este proyecto implementa un algoritmo en Python que permite generar facturas de 
 
 ### ✅ Características actuales:
 
-- Información del cliente (nombre).
+- Información del cliente (Nombre, Cedula de Ciudadania o DNI, Teléfono de contacto.).
 - Lista de productos adquiridos.
 - Cantidad de unidades por producto.
 - Precio unitario de cada producto.
 - Cálculo del valor neto de la factura.
 - Aplicación del IVA correspondiente.
 - Generación del total final a pagar.
+- Generación y guardado de la factura en formato PDF.
 
 El resultado es una factura clara, detallada y lista para ser entregada al cliente
 
 
 ### 🖼️ Vista previa
 
-![image-fact.png](https://i.postimg.cc/g2mnrppp/image-fact.png)
+# Factura generada en la consola del equipo:
+![facutra-consola.png](https://i.postimg.cc/d3YqDSQ7/facutra-consola.png)
+
+# Factura generada en archivo PDF:
+![factura-pdf.png](https://i.postimg.cc/MKYGfxQz/factura-pdf.png)
 
 ---
 
@@ -35,6 +40,9 @@ Este proyecto requiere tener instalado [Python](https://www.python.org/) para su
 
 - `datetime`:  
   Utilizado para obtener la fecha actual con el fin de ser mostrada en la factura electrónica.
+
+- `reportlab`:  
+  Utilizado para la generación de archivos PDF.
 
 ---
 
