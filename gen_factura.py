@@ -1,6 +1,8 @@
 import os
 import random
 from datetime import datetime
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 opcion = -1
 
@@ -50,10 +52,9 @@ while opcion != 2:
           valor_neto = valor_neto + precios[i]
 
         iva = valor_neto * 0.19
-        total = iva + valor_neto
+        total = int(iva + valor_neto)
 
-        fecha = datetime.now()
-        fecha_gen_fact = fecha.strftime('|  📅 Fecha: %d/%m/%Y | %H:%M:%S')
+        fecha = datetime.now().strftime('%d/%m/%Y | %H:%M:%S')
 
         print(f"\nValor Neto: $ {valor_neto}")
         print(f"IVA: $ {iva}")
@@ -61,5 +62,49 @@ while opcion != 2:
 
         print(f"\nCliente: {cliente}.")
         print("Gracias por elegirnos! ❤️\n")
-        print(fecha_gen_fact)
+        print(f"|  📅 Fecha: {fecha}")
         print("__________________________________________________________")
+
+        opcion_pdf_gen = -1
+        print("\n¿Desea guardar está factura en un PDF?\n | 1 - Si.\n | 2 - No.")
+        opcion_pdf_gen = int(input("→ "))
+
+        if opcion_pdf_gen == 1:
+          def Generar_factura(nombre_archivo):
+            ruta_guardar_pdf= "pdf_generados"
+            ruta_completa = os.path.join(ruta_guardar_pdf, nombre_archivo)
+
+            c = canvas.Canvas(ruta_completa, pagesize=letter)
+            
+            text = c.beginText()
+            text.setTextOrigin(50, 750)
+            text.setFont("Courier", 12)
+
+            text.textLine(f"Factura n°: {id_factura}")
+            text.textLine(" ")
+            text.textLine(" ")
+
+            for i in range(len(productos)):
+              suma_precio = precios[i] * cantidades[i]
+              text.textLine(f"{productos[i]} x ({cantidades[i]})      $ {suma_precio}")
+
+            text.textLine(" ")
+            text.textLine(f"Valor Neto: {valor_neto}")
+            text.textLine(f"IVA: {iva}")
+            text.textLine(f"Total: {total}")
+            text.textLine(" ")
+            text.textLine(" ")
+
+            text.textLine(f"Cliente: {cliente}")
+            text.textLine("Gracias por tu compra!")
+            text.textLine(" ")
+            text.textLine(f"Factura generada el: {fecha}")
+            
+            c.drawText(text)
+            c.showPage()
+            c.save()
+            print(f"\nLa Factura n°: {id_factura}. Se guardó correctamente.")
+
+          Generar_factura(f"{id_factura}.pdf")
+        elif opcion_pdf_gen == 2:
+          os.system("cls")
