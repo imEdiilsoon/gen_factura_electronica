@@ -23,11 +23,18 @@ while opcion != 2:
     opcion_menu_factura = -1
     id_factura = random.randint(1000, 9000)
 
-    print("Ingrese el nombre del cliente:")
+    print("| 👤 Información básica del cliente.")
+    print("\nIngrese el nombre del cliente:")
     cliente = input("→ ")
+    print("\nIngrese la cedula del cliente:")
+    cedula = int(input("→ "))
+    print("\nIngrese el correo del cliente:")
+    correo = input("→ ")
 
     while opcion_menu_factura != 2:
 
+      os.system("cls")
+      print("| 🛒 Información del producto.")
       print("\n Ingrese el nombre del producto:")
       productos.append(input("→ "))
       print("\n Ingrese el valor unitario del producto:")
@@ -60,13 +67,16 @@ while opcion != 2:
         print(f"IVA: $ {iva}")
         print(f"Total: $ {total}")
 
-        print(f"\nCliente: {cliente}.")
-        print("Gracias por elegirnos! ❤️\n")
+        print("\n|  👤 Información del cliente:\n")
+        print(f"Nombre: {cliente}.")
+        print(f"Cedula: {cedula}.")
+        print(f"Correo: {correo}.")
+        print("\nGracias por tu compra! ❤️\n")
         print(f"|  📅 Fecha: {fecha}")
         print("__________________________________________________________")
 
         opcion_pdf_gen = -1
-        print("\n¿Desea guardar está factura en un PDF?\n | 1 - Si.\n | 2 - No.")
+        print("\n¿Desea guardar esta factura en un PDF?\n\n | 1 - Si.\n | 2 - No.\n")
         opcion_pdf_gen = int(input("→ "))
 
         if opcion_pdf_gen == 1:
@@ -83,6 +93,7 @@ while opcion != 2:
             text.textLine(f"Factura n°: {id_factura}")
             text.textLine(" ")
             text.textLine(" ")
+            text.textLine("Información de la compra:")
 
             for i in range(len(productos)):
               suma_precio = precios[i] * cantidades[i]
@@ -95,8 +106,13 @@ while opcion != 2:
             text.textLine(" ")
             text.textLine(" ")
 
-            text.textLine(f"Cliente: {cliente}")
-            text.textLine("Gracias por tu compra!")
+            text.textLine("Información del cliente:")
+            text.textLine(" ")
+            text.textLine(f"Nombre: {cliente}")
+            text.textLine(f"Cedula: {cedula}")
+            text.textLine(f"Correo: {correo}")
+            text.textLine(" ")
+            text.textLine("¡Gracias por tu compra!")
             text.textLine(" ")
             text.textLine(f"Factura generada el: {fecha}")
             
