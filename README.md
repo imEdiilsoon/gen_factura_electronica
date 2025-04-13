@@ -41,8 +41,8 @@ Este proyecto requiere tener instalado [Python](https://www.python.org/) para su
 ## 📈 Próximas implementaciones
 
 - [x] Añadir la fecha y hora de emisión de la factura. ¡Completado! 🎉
+- [x] Exportar la factura a un archivo PDF. ¡Completado! 🎉
 - [ ] Almacenar los productos en una lista y al seleccionarlos traer el precio asociado al producto.
-- [ ] Exportar la factura a un archivo PDF.
 - [ ] Incluir información adicional del cliente (correo, dirección, etc.).
 - [ ] Registro y selección de clientes guardados para facturación rápida.
 - [ ] Almacenar la factura en una base de datos para control interno.
