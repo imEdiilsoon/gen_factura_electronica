@@ -3,6 +3,7 @@ import random
 from datetime import datetime
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
+from reportlab.lib.units import mm
 
 opcion = -1
 
@@ -83,8 +84,9 @@ while opcion != 2:
           def Generar_factura(nombre_archivo):
             ruta_guardar_pdf= "pdf_generados"
             ruta_completa = os.path.join(ruta_guardar_pdf, nombre_archivo)
-
-            c = canvas.Canvas(ruta_completa, pagesize=letter)
+            ancho = 120 * mm
+            alto = 300 * mm
+            c = canvas.Canvas(ruta_completa, pagesize=(ancho, alto))
             
             text = c.beginText()
             text.setTextOrigin(50, 750)
