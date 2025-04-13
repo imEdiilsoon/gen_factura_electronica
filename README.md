@@ -17,7 +17,7 @@ El resultado es una factura clara, detallada y lista para ser entregada al clien
 
 ### 🖼️ Vista previa
 
-[![Captura-de-pantalla-2025-04-11-205612.png](https://i.postimg.cc/q7Qrn7Cp/Captura-de-pantalla-2025-04-11-205612.png)](https://postimg.cc/Z99Xz4cQ)
+[![image-fact.png](https://i.postimg.cc/g2mnrppp/image-fact.png)]
 
 ---
 
