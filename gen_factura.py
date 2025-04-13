@@ -56,9 +56,9 @@ while opcion != 2:
 
         valor_neto = 0
         for i in range(len(precios)):
-          valor_neto = valor_neto + precios[i]
+          valor_neto = valor_neto + (precios[i] * cantidades[i])
 
-        iva = valor_neto * 0.19
+        iva = int(valor_neto * 0.19)
         total = int(iva + valor_neto)
 
         fecha = datetime.now().strftime('%d/%m/%Y | %H:%M:%S')
