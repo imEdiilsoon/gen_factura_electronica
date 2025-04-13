@@ -94,6 +94,7 @@ while opcion != 2:
             text.textLine(" ")
             text.textLine(" ")
             text.textLine("Información de la compra:")
+            text.textLine(" ")
 
             for i in range(len(productos)):
               suma_precio = precios[i] * cantidades[i]
