@@ -19,10 +19,10 @@ El resultado es una factura clara, detallada y lista para ser entregada al clien
 ### 🖼️ Vista previa
 
 # Factura generada en la consola del equipo:
-![facutra-consola.png](https://i.postimg.cc/wjZn6fkD/facutra-consola.png)
+![facutra-consola.png](https://i.postimg.cc/X7VgCfvm/facutra-consola.png)
 
 # Factura generada en archivo PDF:
-![factura-pdf.png](https://i.postimg.cc/rw0YYGLs/factura-pdf.png)
+![factura-pdf.png](https://i.postimg.cc/902Y1TY4/factura-pdf.png)
 
 ---
 
