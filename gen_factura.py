@@ -98,12 +98,12 @@ while opcion != 2:
 
             for i in range(len(productos)):
               suma_precio = precios[i] * cantidades[i]
-              text.textLine(f"{productos[i]} x ({cantidades[i]})      $ {suma_precio}")
+              text.textLine(f"{productos[i]} x ({cantidades[i]})  - $ {suma_precio}")
 
             text.textLine(" ")
-            text.textLine(f"Valor Neto: {valor_neto}")
-            text.textLine(f"IVA: {iva}")
-            text.textLine(f"Total: {total}")
+            text.textLine(f"Valor Neto: $ {valor_neto}")
+            text.textLine(f"IVA: $ {iva}")
+            text.textLine(f"Total: $ {total}")
             text.textLine(" ")
             text.textLine(" ")
 
@@ -115,7 +115,7 @@ while opcion != 2:
             text.textLine(" ")
             text.textLine("¡Gracias por tu compra!")
             text.textLine(" ")
-            text.textLine(f"Factura generada el: {fecha}")
+            text.textLine(f"Fecha: {fecha}")
             
             c.drawText(text)
             c.showPage()
