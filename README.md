@@ -33,7 +33,7 @@ Este proyecto requiere tener instalado [Python](https://www.python.org/) para su
 - `random`:  
   Utilizado para generar un identificador único aleatorio (ID) para cada factura, con un valor entre 1000 y 9000.
 
-- `datetime`:
+- `datetime`:  
   Utilizado para obtener la fecha actual con el fin de ser mostrada en la factura electrónica.
 
 ---
