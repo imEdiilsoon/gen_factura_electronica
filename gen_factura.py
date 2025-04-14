@@ -1,7 +1,6 @@
 import os
 import random
 from datetime import datetime
-from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 
