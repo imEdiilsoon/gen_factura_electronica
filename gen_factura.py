@@ -21,7 +21,7 @@ while opcion != 2:
   if opcion == 1:
     os.system("cls")
     opcion_menu_factura = -1
-    id_factura = random.randint(1000, 9000)
+    id_factura = f"Fact-{random.randint(1000, 9000)}"
 
     print("| 👤 Información básica del cliente.")
     print("\nIngrese el nombre del cliente:")
@@ -30,6 +30,8 @@ while opcion != 2:
     cedula = int(input("→ "))
     print("\nIngrese el correo del cliente:")
     correo = input("→ ")
+    print("\nIngrese el número de teléfono del cliente:")
+    numero_telf = input("→ ")
 
     while opcion_menu_factura != 2:
 
@@ -54,23 +56,31 @@ while opcion != 2:
         for i in range(len(productos)):
           print(f"✅ Producto: {productos[i]} | Precio Unit: {precios[i]} | Cantidad: {cantidades[i]}")
 
-        valor_neto = 0
+        subtotal = 0
         for i in range(len(precios)):
-          valor_neto = valor_neto + (precios[i] * cantidades[i])
+          subtotal = subtotal + (precios[i] * cantidades[i])
 
-        iva = int(valor_neto * 0.19)
-        total = int(iva + valor_neto)
-
+        iva = int(subtotal * 0.19)
+        total = int(iva + subtotal)
         fecha = datetime.now().strftime('%d/%m/%Y | %H:%M:%S')
 
-        print(f"\nValor Neto: $ {valor_neto}")
-        print(f"IVA: $ {iva}")
-        print(f"Total: $ {total}")
+        descuento = False
+        if(len(productos) > 6):
+          descuento = True
+
+        print(f"\nSubtotal: $ {subtotal}")
+        print(f"IVA (19%): $ {iva}")
+        if descuento:
+          print(f"Dto aplicado: 10%")
+          print(f"Total: $ {int(total - (total * 0.1))}")
+        else:
+          print(f"Total: $ {total}")
 
         print("\n|  👤 Información del cliente:\n")
         print(f"Nombre: {cliente}.")
         print(f"Cedula: {cedula}.")
         print(f"Correo: {correo}.")
+        print(f"Tlf: {numero_telf}.")
         print("\nGracias por tu compra! ❤️\n")
         print(f"|  📅 Fecha: {fecha}")
         print("__________________________________________________________")
@@ -102,9 +112,13 @@ while opcion != 2:
               text.textLine(f"{productos[i]} x ({cantidades[i]})  - $ {suma_precio}")
 
             text.textLine(" ")
-            text.textLine(f"Valor Neto: $ {valor_neto}")
-            text.textLine(f"IVA: $ {iva}")
-            text.textLine(f"Total: $ {total}")
+            text.textLine(f"Subtotal: $ {subtotal}")
+            text.textLine(f"IVA (19%): $ {iva}")
+            if descuento:
+              text.textLine(f"Dto aplicado: 10%")
+              text.textLine(f"Total: $ {int(total - (total * 0.1))}")
+            else:
+              text.textLine(f"Total: $ {total}")
             text.textLine(" ")
             text.textLine(" ")
 
@@ -113,6 +127,7 @@ while opcion != 2:
             text.textLine(f"Nombre: {cliente}")
             text.textLine(f"Cedula: {cedula}")
             text.textLine(f"Correo: {correo}")
+            text.textLine(f"Tlf: {numero_telf}")
             text.textLine(" ")
             text.textLine("¡Gracias por tu compra!")
             text.textLine(" ")
