@@ -8,9 +8,9 @@ Este proyecto implementa un algoritmo en Python que permite generar facturas de 
 - Lista de productos adquiridos.
 - Cantidad de unidades por producto.
 - Precio unitario de cada producto.
-- Cálculo del valor neto de la factura.
+- Cálculo del Subtotal de la factura.
 - Aplicación del IVA correspondiente.
-- Aplicación de un descuento del 10% cuando compre más de (x) cantidad de productos.
+- Aplicación de un descuento automático del 10% cuando compre más de (x) cantidad de productos.
 - Generación del total final a pagar.
 - Generación y guardado de la factura en formato PDF.
 
