@@ -144,7 +144,6 @@ while opcion != 2:
         elif opcion_pdf_gen == 2:
           os.system("cls")
 
-        # Guardar la factura en un archivo de excel
         archivo_excel = "facturas.xlsx"
 
         if os.path.exists(archivo_excel):
@@ -153,9 +152,17 @@ while opcion != 2:
         else:
           wb = Workbook()
           ws = wb.active
-          ws.append(["id_factura", "productos", "valor_unit", "cantidad", "valor_neto", "nombre_cliente", "cedula_cliente", "correo_cliente", "telefono_cliente", "fecha_compra"])
+          ws.append(["id_factura", "nombre_producto", "valor_unit_producto", "cantidad_producto", "valor_neto_producto", "iva_producto", "descuento_producto", "precio_total_producto", "nombre_cliente", "cedula_cliente", "correo_cliente", "telefono_cliente", "fecha_compra"])
 
         for i in range(len(productos)):
-          ws.append([id_factura, productos[i], precios[i], cantidades[i], precios[i] * cantidades[i], cliente, cedula, correo, numero_telf, fecha])
+          valor_neto_producto = precios[i] * cantidades[i]
+          iva_producto = valor_neto_producto * 0.19
+          precio_total_producto = valor_neto_producto + iva_producto
+          descuento_producto = 0
+          if descuento:
+            descuento_producto = precio_total_producto * .10
+            precio_total_producto = precio_total_producto - descuento_producto
+        
+          ws.append([id_factura, productos[i], precios[i], cantidades[i], valor_neto_producto, iva_producto, descuento_producto, precio_total_producto, cliente, cedula, correo, numero_telf, fecha])
 
         wb.save(archivo_excel)
