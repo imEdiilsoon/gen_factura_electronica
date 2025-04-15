@@ -12,6 +12,7 @@ Este proyecto implementa un algoritmo en Python que permite generar facturas de 
 - Aplicación del IVA correspondiente.
 - Aplicación de un descuento automático del 10% cuando compre más de (x) cantidad de productos.
 - Generación del total final a pagar.
+- Guardado automático de todas las facturas creadas en un archivo de excel.
 - Generación y guardado de la factura en formato PDF.
 
 El resultado es una factura clara, detallada y lista para ser entregada al cliente
@@ -52,9 +53,9 @@ Este proyecto requiere tener instalado [Python](https://www.python.org/) para su
 - [x] Añadir la fecha y hora de emisión de la factura. ¡Completado! 🎉
 - [x] Exportar la factura a un archivo PDF. ¡Completado! 🎉
 - [x] Incluir información adicional del cliente (correo, dirección, etc.). ¡Completado! 🎉
+- [x] Almacenar las factura en un archivo de Excel. ¡Completado! 🎉
 - [ ] Almacenar los productos en una lista y al seleccionarlos traer el precio asociado al producto.
 - [ ] Registro y selección de clientes guardados para facturación rápida.
-- [ ] Almacenar la factura en una base de datos para control interno.
 - [ ] Implementar una interfaz gráfica para ingresar los datos del cliente y los productos de forma visual e intuitiva.
 
 ---
