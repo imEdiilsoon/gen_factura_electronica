@@ -3,6 +3,7 @@ import random
 from datetime import datetime
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
+from openpyxl import load_workbook, Workbook
 
 opcion = -1
 
@@ -62,7 +63,7 @@ while opcion != 2:
 
         iva = int(subtotal * 0.19)
         total = int(iva + subtotal)
-        fecha = datetime.now().strftime('%d/%m/%Y | %H:%M:%S')
+        fecha = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
 
         descuento = False
         if(len(productos) > 6):
@@ -108,8 +109,8 @@ while opcion != 2:
             text.textLine(" ")
 
             for i in range(len(productos)):
-              suma_precio = precios[i] * cantidades[i]
-              text.textLine(f"{productos[i]} x ({cantidades[i]})  - $ {suma_precio}")
+              valor_neto = precios[i] * cantidades[i]
+              text.textLine(f"{productos[i]} x ({cantidades[i]})  - $ {valor_neto}")
 
             text.textLine(" ")
             text.textLine(f"Subtotal: $ {subtotal}")
@@ -139,5 +140,22 @@ while opcion != 2:
             print(f"\nLa Factura n°: {id_factura}. Se guardó correctamente.")
 
           Generar_factura(f"{id_factura}.pdf")
+
         elif opcion_pdf_gen == 2:
           os.system("cls")
+
+        # Guardar la factura en un archivo de excel
+        archivo_excel = "facturas.xlsx"
+
+        if os.path.exists(archivo_excel):
+          wb = load_workbook(archivo_excel)
+          ws = wb.active
+        else:
+          wb = Workbook()
+          ws = wb.active
+          ws.append(["id_factura", "productos", "valor_unit", "cantidad", "valor_neto", "nombre_cliente", "cedula_cliente", "correo_cliente", "telefono_cliente", "fecha_compra"])
+
+        for i in range(len(productos)):
+          ws.append([id_factura, productos[i], precios[i], cantidades[i], precios[i] * cantidades[i], cliente, cedula, correo, numero_telf, fecha])
+
+        wb.save(archivo_excel)
