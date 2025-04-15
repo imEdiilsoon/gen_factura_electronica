@@ -61,7 +61,7 @@ while opcion != 2:
         for i in range(len(precios)):
           subtotal = subtotal + (precios[i] * cantidades[i])
 
-        iva = int(subtotal * 0.19)
+        iva = int(subtotal * .19)
         total = int(iva + subtotal)
         fecha = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
 
@@ -117,7 +117,7 @@ while opcion != 2:
             text.textLine(f"IVA (19%): $ {iva}")
             if descuento:
               text.textLine(f"Dto aplicado: 10%")
-              text.textLine(f"Total: $ {int(total - (total * 0.1))}")
+              text.textLine(f"Total: $ {int(total - (total * .1))}")
             else:
               text.textLine(f"Total: $ {total}")
             text.textLine(" ")
@@ -160,7 +160,7 @@ while opcion != 2:
           precio_total_producto = valor_neto_producto + iva_producto
           descuento_producto = 0
           if descuento:
-            descuento_producto = precio_total_producto * .10
+            descuento_producto = precio_total_producto * .1
             precio_total_producto = precio_total_producto - descuento_producto
         
           ws.append([id_factura, productos[i], precios[i], cantidades[i], valor_neto_producto, iva_producto, descuento_producto, precio_total_producto, cliente, cedula, correo, numero_telf, fecha])
