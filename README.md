@@ -46,6 +46,9 @@ Este proyecto requiere tener instalado [Python](https://www.python.org/) para su
 - `reportlab`:  
   Utilizado para la generación de archivos PDF.
 
+- `openpyxl`:  
+  Utilizado para almacenar las facturas creadas en un archivo de excel.
+
 ---
 
 ## 📈 Próximas implementaciones
