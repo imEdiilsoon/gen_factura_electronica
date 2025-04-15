@@ -93,7 +93,14 @@ while opcion != 2:
         if opcion_pdf_gen == 1:
           def Generar_factura(nombre_archivo):
             ruta_guardar_pdf= "pdf_generados"
-            ruta_completa = os.path.join(ruta_guardar_pdf, nombre_archivo)
+
+            if os.path.exists(ruta_guardar_pdf):
+              ruta_completa = os.path.join(ruta_guardar_pdf, nombre_archivo)
+            else:
+              os.mkdir("pdf_generados")
+              ruta_guardar_pdf = "pdf_generados"
+              ruta_completa = os.path.join(ruta_guardar_pdf, nombre_archivo)
+            
             ancho = 120 * mm
             alto = 300 * mm
             c = canvas.Canvas(ruta_completa, pagesize=(ancho, alto))
