@@ -11,10 +11,6 @@ while opcion != 2:
   print("\nElige una opción: \n\n | 1 - Crear una nueva Factura. \n | 2 - Salir del programa. \n")
   opcion = int(input("→ "))
   
-  if opcion == 2:
-    os.system("cls")
-    exit
-
   productos = []
   precios = []
   cantidades = []
@@ -22,7 +18,7 @@ while opcion != 2:
   if opcion == 1:
     os.system("cls")
     opcion_menu_factura = -1
-    id_factura = f"Fact-{random.randint(1000, 9000)}"
+    id_factura = f"Fact-{random.randint(1000, 9999)}"
 
     print("| 👤 Información básica del cliente.")
     print("\nIngrese el nombre del cliente:")
@@ -173,3 +169,10 @@ while opcion != 2:
           ws.append([id_factura, productos[i], precios[i], cantidades[i], valor_neto_producto, iva_producto, descuento_producto, precio_total_producto, cliente, cedula, correo, numero_telf, fecha])
 
         wb.save(archivo_excel)
+
+  elif opcion == 2:
+    os.system("cls")
+    exit
+  else:
+    os.system("cls")
+    print("Error | Ingresaste una opción invalida.")
