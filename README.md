@@ -1,4 +1,4 @@
-# 🧾 Generador de Facturas | v1
+# 🧾 Generador de Facturas
 
 Este proyecto implementa un algoritmo en Python que permite generar facturas de manera automatizada a partir de la información proporcionada por el usuario. El sistema contempla los siguientes elementos clave:
 
