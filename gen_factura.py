@@ -8,7 +8,7 @@ from openpyxl import load_workbook, Workbook
 opcion = -1
 
 while opcion != 2:
-  print("\nElige una opción: \n\n | 1 - Crear una nueva Factura. \n | 2 - Salir del programa. \n")
+  print("\nElige una opción: \n\n | 1 - Crear una nueva Factura. 🧾\n | 2 - Salir del programa. ❌\n")
   opcion = int(input("→ "))
   
   productos = []
@@ -42,7 +42,7 @@ while opcion != 2:
       cantidades.append(int(input("→ ")))
 
       os.system("cls")
-      print("\nElige una opción: \n\n | 1 - Registrar otro producto. \n | 2 - Imprimir factura. \n")
+      print("\nElige una opción: \n\n | 1 - Registrar otro producto. ➕\n | 2 - Imprimir factura. 🧾\n")
       opcion_menu_factura = int(input("→ "))
 
       if(opcion_menu_factura == 2):
@@ -56,20 +56,22 @@ while opcion != 2:
         subtotal = 0
         for i in range(len(precios)):
           subtotal = subtotal + (precios[i] * cantidades[i])
-
         iva = int(subtotal * .19)
         total = int(iva + subtotal)
-        fecha = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
 
         descuento = False
         if(len(productos) > 6):
           descuento = True
 
+        descuento_aplicado = int(total - (total * 0.1))
+
+        fecha = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
+
         print(f"\nSubtotal: $ {subtotal}")
         print(f"IVA (19%): $ {iva}")
         if descuento:
           print(f"Dto aplicado: 10%")
-          print(f"Total: $ {int(total - (total * 0.1))}")
+          print(f"Total: $ {descuento_aplicado}")
         else:
           print(f"Total: $ {total}")
 
@@ -83,7 +85,7 @@ while opcion != 2:
         print("__________________________________________________________")
 
         opcion_pdf_gen = -1
-        print("\n¿Desea guardar esta factura en un PDF?\n\n | 1 - Si.\n | 2 - No.\n")
+        print("\n¿Desea guardar esta factura en un PDF?\n\n | 1 - Si. ✅\n | 2 - No. ❌\n")
         opcion_pdf_gen = int(input("→ "))
 
         if opcion_pdf_gen == 1:
@@ -120,7 +122,7 @@ while opcion != 2:
             text.textLine(f"IVA (19%): $ {iva}")
             if descuento:
               text.textLine(f"Dto aplicado: 10%")
-              text.textLine(f"Total: $ {int(total - (total * .1))}")
+              text.textLine(f"Total: $ {descuento_aplicado}")
             else:
               text.textLine(f"Total: $ {total}")
             text.textLine(" ")
@@ -140,7 +142,7 @@ while opcion != 2:
             c.drawText(text)
             c.showPage()
             c.save()
-            print(f"\nLa Factura n°: {id_factura}. Se guardó correctamente.")
+            print(f"\nLa Factura n°: {id_factura}. Se guardó correctamente. ✅")
 
           Generar_factura(f"{id_factura}.pdf")
 
@@ -175,4 +177,4 @@ while opcion != 2:
     exit
   else:
     os.system("cls")
-    print("Error | Ingresaste una opción invalida.")
+    print("Error | Ingresaste una opción invalida. ")
